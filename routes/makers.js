@@ -4,7 +4,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Makers = require('../models/Makers.js');
 
-/* GET /todos listing. */
+/* GET /makers listing. */
 router.get('/', function(req, res, next) {
   Makers.find(function (err, makers) {
     if (err) return next(err);
@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
   });
 });
 
-/* POST /todos */
+/* POST /makers */
 router.post('/', function(req, res, next) {
   Makers.create(req.body, function (err, post) {
     if (err) return next(err);
@@ -20,7 +20,7 @@ router.post('/', function(req, res, next) {
   });
 });
 
-/* GET /todos/id */
+/* GET /makers/id */
 router.get('/:id', function(req, res, next) {
   Makers.findById(req.params.id, function (err, post) {
     if (err) return next(err);
@@ -28,7 +28,7 @@ router.get('/:id', function(req, res, next) {
   });
 });
 
-/* PUT /todos/:id */
+/* PUT /makers/:id */
 router.put('/:id', function(req, res, next) {
   Makers.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
@@ -36,7 +36,7 @@ router.put('/:id', function(req, res, next) {
   });
 });
 
-/* DELETE /todos/:id */
+/* DELETE /makers/:id */
 router.delete('/:id', function(req, res, next) {
   Makers.findByIdAndRemove(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
